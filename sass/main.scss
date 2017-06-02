@@ -1,0 +1,555 @@
+@import "susy";
+@import "breakpoint";
+
+//reset
+@import "reset";
+
+//variables
+@import "variables";
+
+//mixins
+@import "mixins";
+
+//partials
+@import "buttons";
+@import "nav";
+
+//fonts
+@import 'fonts';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400&subset=cyrillic');
+
+//Susy settings
+$susy: (
+  columns: 12,
+  gutter-position: inside,
+  gutters: 0,
+  math: fluid,
+  output: float,
+);
+
+*, :after, :before {
+	box-sizing: border-box;
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: $green;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 3px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0.1); 
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: transparentize($green, 0.7); 
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0.5);
+     @include transition(0.5s); 
+    
+    &:hover {
+    	background: $green;
+    	@include transition(0.5s);
+    }
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: transparentize($black, 0.4); 
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	height: auto;
+	overflow-x: hidden;
+	background: $beige;
+}
+
+h1, h2, h3, h4 {
+	font-weight: 400;
+	text-transform: uppercase;
+	font-family: 'TP Reg', serif;
+}
+
+
+h2 {
+	font-size: 1.8rem;
+	text-align: center;
+	margin-bottom: 2rem;
+	&:before {
+		content: "";
+		width: 80px;
+		height: 1.8rem;
+		margin-right: 1rem;
+		position: relative;
+		top: 0;
+		display: inline-block;
+		background: url(../img/symbol-left.png) center no-repeat;
+		@include background-size(contain);
+		@include breakpoint($tablet) {
+			display: none;
+		}
+	}
+	&:after {
+		content: "";
+		width: 80px;
+		height: 1.8rem;
+		margin-left: 1rem;
+		position: relative;
+		top: 0;
+		display: inline-block;
+		background: url(../img/symbol-right.png) center no-repeat;
+		@include background-size(contain);
+		@include breakpoint($tablet) {
+			display: none;
+		}
+	}
+	
+}
+
+img {
+	max-width: 100%;
+}
+
+section {
+	position: relative;
+}
+
+.hidden {
+	display: none;
+}
+
+.container {
+	@include container(90%);
+	@include breakpoint($tablet) {
+		@include container(100%);
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+header.top {
+	height: 500px;
+	@include breakpoint($tablet) {
+		height: 270px;
+	}
+
+	.container {
+		background: url(../img/header-bg.jpg) center no-repeat;
+		@include background-size(cover);
+		height: 500px;
+		padding-top: 120px;
+		padding-left: 100px;
+		@include breakpoint($tablet) {
+			padding-top: 40px;
+			padding-left: 1rem;
+			height: 270px;	
+			background-position-x: 37%;		
+		}
+		
+		h1 {
+			font-size: 3rem;
+			margin-bottom: 2rem;
+			@include breakpoint($tablet) {
+				font-size: 1.5rem;
+			}
+			
+			&:after {
+				content: "";
+				width: 100px;
+				height: 3rem;
+				margin-left: 2rem;
+				position: relative;
+				top: 5px;
+				display: inline-block;
+				background: url(../img/symbol-after-header.png) center no-repeat;
+				@include background-size(contain);
+				@include breakpoint($tablet) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+#bestsellers {
+	padding: 60px 0 30px;
+	
+	.container {
+		max-width: calc(90% + 2rem);
+		.product {
+			@include span(3);
+			padding: 1rem;
+			margin: 2rem 0 0;
+			height: 440px;
+			@include breakpoint($tablet) {
+				@include span(12);
+				margin-bottom: 1rem;
+				height: auto;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.product__inner {
+				background: #FFF;
+				text-align: center;
+				border: 1px solid $gray;
+				p {
+					padding: 0.5rem;
+					text-decoration: none;
+					color: $gray;
+					
+					&.price {
+						font-size: 1.5rem;
+						font-weight: bold;
+						padding-bottom: 1rem;
+					}
+					
+				}
+			}
+		}
+	}
+}
+
+#about {
+	padding: 60px 0;
+	
+	.container {
+		.photo {
+			@include span(6);
+			@include breakpoint($tablet) {
+				@include span(12);
+				margin-bottom: 2rem;
+			}
+		}
+
+		.text {
+			@include span(6);
+			padding-left: 2rem;
+			@include breakpoint($tablet) {
+				@include span(12);
+				padding-left: 0;
+			}
+			
+			p {
+				margin-bottom: 1rem;
+				font-weight: 400;
+				
+				&:nth-child(1) {
+					&::first-letter {
+						font-size: 2rem;
+						font-family: 'TP Reg', serif;
+						margin-bottom: 0;
+						line-height: 1;
+					}
+				}				
+			}
+		}
+	}
+}
+
+footer {
+	padding: 40px 0;
+	background: #FFF;
+	position: relative;
+	overflow: hidden;
+	
+	&:after {
+		content: "";
+		width: 40%;
+		height: 150px;
+		bottom: -20px;
+		right: -5%;
+		display: block;
+		position: absolute;
+		background: url(../img/footer-leafs.png) center no-repeat;
+		@include background-size(contain);
+	    background-position-x: 100%;
+	    @include breakpoint($tablet) {
+			display: none;
+		}
+	}
+	
+	.container {
+		.brand {
+			@include span(2);
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+			
+			img {
+				max-width: 100%;
+				margin-bottom: 1rem;
+			}
+
+			p {
+					font-size: 0.8rem;
+					margin-bottom: 1rem;
+				}
+		}
+
+		.footer-nav {
+			@include span(3);
+			padding-left: 1rem;
+			@include breakpoint($tablet) {
+				@include span(12);
+				padding-left: 0;
+			}
+			
+			h3 {
+				&:after {
+					content: "";
+					width: 80px;
+					height: 2px;
+					margin-top: 0.5rem;
+					margin-bottom: 0.5rem;
+					display: block;
+					background: $gray;
+				}
+
+				@include breakpoint($tablet) {
+					margin-top: 2rem;
+				}
+			}
+			
+			&.store-nav {
+				padding-left: 3rem;
+				@include breakpoint($tablet) {
+					padding-left: 0;
+				}
+			}
+			
+			ul {
+				list-style: none;
+				
+				li {
+					font-size: 0.8rem;
+					
+					a {
+						font-size: 0.8rem;
+						text-decoration: none;
+					}
+				}
+				
+			}
+
+			&.sub-nav__1 {
+				padding-left: 3rem;
+				@include breakpoint($tablet) {
+					padding-left: 0;
+				}
+			}
+		}
+
+		.socials {
+			@include span(1);
+			text-align: right;
+			@include breakpoint($tablet) {
+				margin-top: 2rem;
+				@include span(12);
+				text-align: left;
+			}
+			
+			ul {
+				list-style: none;
+				margin-bottom: 1rem;
+				
+				li {
+					display: inline-block;
+					margin-left: 0.6rem;
+					
+					a {
+						i {
+							font-size: 1.5rem;
+							color: lighten($gray, 30);
+						}
+
+						&:hover {
+							i {
+								color: $green;
+							}
+						}
+					}
+				}
+			}
+
+			p {
+				font-size: 0.6rem;
+			}
+		}
+	}
+}
+
+.remodal {
+  background: url(../img/modal-bg.jpg) center center no-repeat;
+  @include background-size(cover);
+  border-bottom: 3px solid $green;
+  @include breakpoint($phone) {
+    background-position: left;
+  } 
+
+  .remodal-close {
+    top: -50px;
+    left: 710px;
+    opacity: 0.7;
+    @include transition(0.6s);
+    @include breakpoint($phone) {
+      left: 0;
+      top: 0;
+    }
+
+    &:hover {
+      @include transition(0.6s);
+      @include transform(rotate(180deg) scale(1.2));
+      @include transform-origin(50% 50%);
+      opacity: 1;
+    }
+  }
+
+  .remodal-close:before {
+    display: none;
+  }
+
+  .remodal-close span:nth-child(1) {
+    position: absolute;
+    top: 16px;
+    left: -2px;
+    height: 2px;
+    width: 40px;
+    background-color: $white;
+    @include transform(rotate(45deg));
+    @include breakpoint($phone) {
+      background-color: $green;
+    } 
+  }
+
+  .remodal-close span:nth-child(2) {
+    position: absolute;
+    top: 16px;
+    left: -2px;
+    height: 2px;
+    width: 40px;
+    background-color: $white;
+    @include transform(rotate(135deg));
+    @include breakpoint($phone) {
+      background-color: $green;
+    } 
+  }
+
+  .remodal-close:hover span:nth-child(1), .remodal-close:hover span:nth-child(2) {
+    background-color: $green;
+    @include transition(0.5s);
+  }
+}
+
+.text-modal {
+  max-width: 50%;
+  text-align: left;
+  @include breakpoint($phone) {
+    max-width: 100%;
+  } 
+
+  h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 0;
+    text-transform: none;
+    margin-bottom: 2rem;
+  }
+
+}
+
+.law {
+	margin-top: 2rem;
+	max-width: 60%;
+	text-align: left;
+	@include breakpoint($phone) {
+	max-width: 100%;
+	} 
+
+  p {
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+}
+
+.form-modal {
+  width: 40%;
+  @include breakpoint($phone) {
+    width: 100%;
+  } 
+  .input {
+    input {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      outline-color: $green;
+      border-left: none;
+      border-top: none;
+      border-right: none;
+      border-bottom: 1px solid $green;
+      background-color: transparent;
+      color: darken($white, 80);
+      text-transform: uppercase;
+    }
+    ::-webkit-input-placeholder {
+       color: darken($white, 80);
+    }
+    :-moz-placeholder { /* Firefox 18- */
+       color: darken($white, 80);  
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: darken($white, 80);  
+    }
+    :-ms-input-placeholder {  
+       color: darken($white, 80);  
+    }
+  } 
+
+  .btn {
+    width: 100%;
+    padding: 12px 56px 12px 26px;
+    background-color: $green;
+    cursor: pointer;
+    border: 1px solid $green;
+    color: #fff;
+  }
+
+  
+}
+
+@import "single";
+@import "shop";
+

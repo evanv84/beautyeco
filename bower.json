@@ -1,0 +1,22 @@
+{
+  "name": "beautyecoshop.ru",
+  "description": "",
+  "main": "",
+  "keywords": [
+    "natural",
+    "cosmetics",
+    "webstore"
+  ],
+  "authors": [
+    "i.i."
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

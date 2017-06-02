@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins";
+
+a {
+	color: $black;
+}
+
+.btn {
+	display: inline-block;
+	padding: 12px 56px 0 26px;
+	background: $green;
+	color: $white;
+	border: 1px solid $green;
+	font-size: 1rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	position: relative;
+	height: 50px;
+	overflow: hidden;
+	vertical-align: middle;
+	@include transition(0.7s);
+	&:after {
+		content: '';
+		position: absolute;
+		width: 40px;
+		height: 39px;
+		top: 4px;
+		right: 5px;
+		background: url(../img/arrow-wh.png) center center no-repeat;
+		background-position: 50% 50%;
+		@include background-size(25%);
+		@include transition(0.7s);
+		@include breakpoint($tablet) {
+			display: none;
+		}
+	}
+	&:hover {
+			background: darken($green, 15);
+			color: #FFF;
+			border: 1px solid darken($green, 15);
+			padding-left: 41px;
+			padding-right: 41px;
+			
+			@include transition(0.5s);
+			&:after {
+				background: url(../img/arrow-wh.png) center center no-repeat;
+				@include background-size(25%);
+				background-position: 100px;
+			}
+	}
+	@include breakpoint($tablet) {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 1em;
+			padding: 1rem 0.5em;
+			height: auto;
+	}
+	@include breakpoint($phone) {
+				width: 100%;
+				text-align: center;
+				margin-bottom: 1em;
+				padding: 1rem 0.5em;
+				margin-right: auto;
+				margin-left: auto;
+	}
+}
+

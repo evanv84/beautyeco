@@ -1,0 +1,80 @@
+header.single-page-header {
+	height: 200px;
+	@include breakpoint($tablet) {
+		height: auto;
+	}
+	
+	.container {
+		background: url(../img/single-header-bg.jpg) center no-repeat;
+		@include background-size(cover);
+		height: 200px;
+		padding-top: 60px;
+		padding-left: 0;
+		text-align: center;
+		@include breakpoint($tablet) {
+			height: auto;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		
+		h1 {
+			font-size: 1.5rem;
+			color: #FFF;
+			margin-bottom: 0;
+			@include breakpoint($tablet) {
+				font-size: 1.2rem;
+			}
+			
+			&:before {
+				content: "";
+				width: 80px;
+				height: 3rem;
+				margin-right: 2rem;
+				position: relative;
+				top: 15px;
+				display: inline-block;
+				background: url(../img/symbol-left-h.png) center no-repeat;
+				@include background-size(contain);
+				@include breakpoint($tablet) {
+					display: none;
+				}
+			}
+			
+			&:after {
+				content: "";
+				width: 80px;
+				height: 3rem;
+				margin-left: 2rem;
+				position: relative;
+				top: 15px;
+				display: inline-block;
+				background: url(../img/symbol-right-h.png) center no-repeat;
+				@include background-size(contain);
+				@include breakpoint($tablet) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+#single-page-content {
+	padding: 60px 0;
+	
+	.container {
+		p {
+			margin-bottom: 1rem;
+			
+			&:nth-child(1) {
+				&::first-letter {
+					font-size: 1.6rem;
+					font-family: 'TP Reg', serif;
+					margin-bottom: 0;
+					line-height: 1;
+				}
+			}
+		}
+	}
+}
