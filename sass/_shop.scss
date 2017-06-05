@@ -202,6 +202,36 @@ header.shop-page-header {
 
 	.woocommerce-pagination {
 		text-align: left !important;
+		padding-left: 0.5rem;
+	}
+
+	nav.woocommerce-pagination ul {
+	    display: inline-block;
+	    white-space: nowrap;
+	    padding: 0;
+	    border: 1px solid $green;
+	    border-right: 0;
+	    margin: 1px;
+	}
+
+	nav.woocommerce-pagination ul li {
+	    border-right: 1px solid $green;
+	    padding: 0;
+	    margin: 0;
+	    float: left;
+	    display: inline;
+	    overflow: hidden;
+	}
+
+	.woocommerce-pagination ul.page-numbers li, .woocommerce-page .woocommerce-pagination ul.page-numbers li {
+	    display: inline-block;
+	    width: 35px;
+	    text-align: center;
+	}
+
+	nav.woocommerce-pagination ul li a:focus, nav.woocommerce-pagination ul li a:hover, nav.woocommerce-pagination ul li span.current {
+	    background: $green;
+	    color: #fff;
 	}
 
 	.woocommerce-product-details__short-description {
@@ -579,7 +609,16 @@ header.shop-page-header {
 		clear: both;
 	}
 
+	.woocommerce-shipping-calculator {
+		margin-top: 1rem;
+	}
 
+	.woocommerce-shipping-calculator p:nth-child(1)::first-letter {
+	    font-size: 1rem !important;
+	    font-family: 'Open Sans', sans-serif;
+	    margin-bottom: 0;
+	    line-height: 1;
+	}
 
 }
 

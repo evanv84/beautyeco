@@ -66,6 +66,7 @@ header.single-page-header {
 	.container {
 		p {
 			margin-bottom: 1rem;
+			font-weight: 400;
 			
 			&:nth-child(1) {
 				&::first-letter {
@@ -75,6 +76,11 @@ header.single-page-header {
 					line-height: 1;
 				}
 			}
+		}
+
+		strong, b {
+			font-weight: 600;
+			margin-top: 2rem;
 		}
 	}
 }

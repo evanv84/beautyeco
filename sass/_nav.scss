@@ -21,7 +21,7 @@ $susy: (
 		display: none;
 	}
 
-	span {
+	span, strong {
 		text-transform: uppercase;
 		font-weight: bold;
 	}
@@ -223,6 +223,10 @@ nav {
 				border: 1px solid $gray;
 				border-right: none;
 				width: 120px;
+				
+				&:focus {
+					outline-color: $green;
+				}
 			}
 
 			button {
@@ -237,6 +241,11 @@ nav {
 				    top: 4px;
 				    left: -5px;
 				    cursor: pointer;
+				    
+				    &:focus {
+						outline-color: $green;
+					}
+					
 				img {
 					width: 20px;
 				}
